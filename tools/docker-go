@@ -75,6 +75,9 @@ for i in http_proxy https_proxy no_proxy HTTP_PROXY HTTPS_PROXY NO_PROXY ; do
   fi
 done
 
+#set -x
+#set -v
+
 docker run --rm \
   -e GOCACHE='/tmp/.cache' \
   -e GOPATH='/tmp/go' \
@@ -88,3 +91,6 @@ docker run --rm \
   -w /usr/src/host-ctr \
   "${SDK_IMAGE}" \
     bash -c "${COMMAND}"
+
+#docker run --rm -e GOCACHE=/tmp/.cache -e GOPATH=/tmp/go --user 1001:1001 --security-opt label:disable --network=host -v /home/leafcolor/app/julia/bottlerocket/.gomodcache:/tmp/go/pkg/mod -v /home/leafcolor/app/julia/bottlerocket/sources/host-ctr:/usr/src/host-ctr -v /home/leafcolor/app/julia/bottlerocket/.config/go:/.config/go -w /usr/src/host-ctr public.ecr.aws/bottlerocket/bottlerocket-sdk-x86_64:v0.23.1 bash -c 'go env -w GOPROXY=https://goproxy.cn && go list -mod=readonly ./... >/dev/null && go mod vendor'
+#echo !!
