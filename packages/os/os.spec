@@ -329,6 +329,10 @@ if [ "${static_rc}" -ne 0 ]; then
 fi
 
 %install
+mkdir -p %{buildroot}/var/lib/netdog
+touch %{buildroot}/var/lib/netdog/current_ip
+mkdir -p %{buildroot}/.bottlerocket/host-containers/current
+
 install -d %{buildroot}%{_cross_bindir}
 for p in \
   apiserver \
@@ -419,6 +423,11 @@ install -p -m 0644 %{S:300} %{buildroot}%{_cross_udevrulesdir}/80-ephemeral-stor
 
 %files
 %{_cross_attribution_vendor_dir}
+
+#%defattr(-,root,root,-)
+%attr(-,root,root) /var/lib/netdog
+%attr(-,root,root) /var/lib/netdog/current_ip
+%attr(-,root,root) /.bottlerocket/host-containers/current
 
 %files -n %{_cross_os}apiserver
 %{_cross_bindir}/apiserver
