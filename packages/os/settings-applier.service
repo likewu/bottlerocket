@@ -11,6 +11,7 @@ RefuseManualStop=true
 
 [Service]
 Type=oneshot
+ExecStartPre=ls -la /var
 ExecStartPre=/usr/bin/settings-committer
 ExecStart=/usr/bin/thar-be-settings --all
 RemainAfterExit=true
