@@ -561,11 +561,11 @@ dependencies = [
 [tasks.tuftool]
 script = [
 '''
-cargo install \
-  --jobs ${BUILDSYS_JOBS} \
-  --root tools \
-  --quiet \
-  tuftool
+#cargo install \
+#  --jobs ${BUILDSYS_JOBS} \
+#  --root tools \
+#  --quiet \
+#  tuftool
 '''
 ]
 

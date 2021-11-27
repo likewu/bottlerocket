@@ -9,6 +9,7 @@ License: Apache-2.0 OR MIT
 
 # CIL policy files
 Source0: base.cil
+Source15: base2.cil
 Source1: sid.cil
 Source2: class.cil
 Source3: subject.cil
@@ -21,6 +22,7 @@ Source9: networks.cil
 Source10: ipcs.cil
 Source11: systems.cil
 Source12: rules.cil
+Source14: rules2.cil
 Source13: mcs.cil
 
 # Helpers for generating CIL
@@ -41,13 +43,15 @@ BuildRequires: secilc
 %prep
 %setup -T -c
 cp -p \
-  %{S:0} %{S:1} %{S:2} %{S:3} %{S:4} %{S:5} \
+  %{S:0} %{S:15} %{S:1} %{S:2} %{S:3} %{S:4} %{S:5} \
   %{S:6} %{S:7} %{S:8} %{S:9} %{S:10} %{S:11} \
-  %{S:12} %{S:13} .
+  %{S:12} %{S:14} %{S:13} .
 
 %build
 %{_sourcedir}/catgen.sh > category.cil
-secilc --policyvers=31 *.cil
+secilc --policyvers=31 base.cil category.cil class.cil files.cil fs.cil ipcs.cil mcs.cil networks.cil object.cil processes.cil rules.cil sid.cil sockets.cil subject.cil systems.cil
+secilc --policyvers=31 base2.cil category.cil class.cil files.cil object.cil processes.cil rules2.cil sid.cil subject.cil systems.cil -o policy.33
+#secilc --policyvers=31 base.cil category.cil class.cil files.cil fs.cil ipcs.cil mcs.cil networks.cil object.cil processes.cil rules.cil sid.cil sockets.cil subject.cil systems.cil -o policy.33
 
 %install
 poldir="%{buildroot}%{_cross_factorydir}%{_cross_sysconfdir}/selinux"
@@ -56,6 +60,8 @@ install -p -m 0644 %{S:100} "${poldir}/config"
 install -p -m 0644 %{S:101} "${poldir}/%{policytype}/contexts"
 install -p -m 0644 file_contexts "${poldir}/%{policytype}/contexts/files"
 install -p -m 0644 policy.31 "${poldir}/%{policytype}/policy"
+install -d "${poldir}/default/"{contexts/files,policy}
+install -p -m 0644 policy.33 "${poldir}/default/policy"
 
 moddir="%{buildroot}%{_cross_factorydir}%{_cross_sharedstatedir}/selinux/%{policytype}/active/modules/100"
 install -d "${moddir}"
@@ -80,6 +86,7 @@ install -p -m 0644 %{S:103} %{buildroot}%{_cross_tmpfilesdir}/selinux-policy.con
 %{_cross_factorydir}%{_cross_sysconfdir}/selinux/%{policytype}/contexts/files/file_contexts
 %{_cross_factorydir}%{_cross_sysconfdir}/selinux/%{policytype}/contexts/lxc_contexts
 %{_cross_factorydir}%{_cross_sysconfdir}/selinux/%{policytype}/policy/policy.31
+%{_cross_factorydir}%{_cross_sysconfdir}/selinux/default/policy/policy.33
 %{_cross_factorydir}%{_cross_sharedstatedir}/selinux/%{policytype}
 %{_cross_sysconfdir}/selinux
 %{_cross_tmpfilesdir}/selinux-policy.conf

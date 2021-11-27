@@ -4,11 +4,11 @@
 # with hybrid SSM off of AWS.  VMware users might not want to use either of
 # those options.
 [settings.host-containers.admin]
-enabled = true
+enabled = false
 superpowered = true
 source = "public.ecr.aws/bottlerocket/bottlerocket-admin:v0.7.2"
 
 [settings.host-containers.control]
-enabled = true
+enabled = false
 superpowered = false
 source = "public.ecr.aws/bottlerocket/bottlerocket-control:v0.5.2"

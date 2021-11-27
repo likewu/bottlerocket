@@ -1,0 +1,15 @@
+;https://github.com/SELinuxProject/cil/wiki
+; Deny any action that is not defined by the policy.
+(handleunknown allow)
+
+; Define the set of all subject and object types, to allow certain actions to
+; be allowed or denied for everything.
+(typeattribute global)
+(typeattributeset global ((all_s) (all_o)))
+
+; Define a subset of these types which are considered public.
+(typeattribute public)
+(typeattributeset public (xor (global) (restricted_o)))
+
+; All subjects are allowed to describe all processes.
+(allow all_s all_s (processes (describe)))
