@@ -307,10 +307,10 @@ rm -f %{buildroot}%{_cross_libdir}/systemd/{system,user}/graphical.target
 %exclude %{_cross_localedir}
 %exclude %{_cross_localstatedir}/log/README
 
-#%exclude %{_cross_bindir}/systemd-ask-password
-#%exclude %{_cross_bindir}/systemd-tty-ask-password-agent
-#%exclude %{_cross_libdir}/systemd/systemd-sulogin-shell
-#%exclude %{_cross_libdir}/systemd/systemd-reply-password
+%exclude %{_cross_bindir}/systemd-ask-password
+%exclude %{_cross_bindir}/systemd-tty-ask-password-agent
+%exclude %{_cross_libdir}/systemd/systemd-sulogin-shell
+%exclude %{_cross_libdir}/systemd/systemd-reply-password
 %exclude %{_cross_systemdgeneratordir}/systemd-debug-generator
 %exclude %{_cross_systemdgeneratordir}/systemd-getty-generator
 %exclude %{_cross_unitdir}/console-getty.service
@@ -318,9 +318,9 @@ rm -f %{buildroot}%{_cross_libdir}/systemd/{system,user}/graphical.target
 %exclude %{_cross_unitdir}/debug-shell.service
 %exclude %{_cross_unitdir}/emergency.service
 %exclude %{_cross_unitdir}/emergency.target
-#%exclude %{_cross_unitdir}/getty@.service
-#%exclude %{_cross_unitdir}/rescue.service
-#%exclude %{_cross_unitdir}/rescue.target
+%exclude %{_cross_unitdir}/getty@.service
+%exclude %{_cross_unitdir}/rescue.service
+%exclude %{_cross_unitdir}/rescue.target
 %exclude %{_cross_unitdir}/serial-getty@.service
 %exclude %{_cross_unitdir}/systemd-ask-password-console.service
 %exclude %{_cross_unitdir}/systemd-ask-password-console.path
