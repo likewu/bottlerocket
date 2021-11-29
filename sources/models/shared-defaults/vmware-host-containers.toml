@@ -4,11 +4,13 @@
 # with hybrid SSM off of AWS.  VMware users might not want to use either of
 # those options.
 [settings.host-containers.admin]
-enabled = false
+enabled = true
 superpowered = true
 source = "public.ecr.aws/bottlerocket/bottlerocket-admin:v0.7.2"
+# ex: echo '{"ssh":{"authorized-keys":["ssh-rsa EXAMPLEAUTHORIZEDPUBLICKEYHERE my-key-pair"]}}' | base64
+user-data = "eyJzc2giOnsiYXV0aG9yaXplZC1rZXlzIjpbInNzaC1lZDI1NTE5IEFBQUFDM056YUMxbFpESTFOVEU1QUFBQUlLVzRXMFg4QzlScTV2TkNCODNYYkNRSGFrRjBoRTI1a2dLTlNzMHQzMHBpIHNvZnRATEFQVE9QLU5FR1UyUkUzIiwic3NoLXJzYSBBQUFBQjNOemFDMXljMkVBQUFBREFRQUJBQUFCZ1FDNEx2TURWZE1CZXRSRHRQOFA3dmdEb2JPZ3R2dDZKekZOVWx5MjZaZ09BTXFTVUx6K2VhZU5PNlFWa00rRlNkT0M1NzAxdnJlUXorRmtnQkh2UGJ5NE9DWEh5RjJJZ013VjFvL25ZbkRqOHE4Z0pFOUF3TkhqVEtvVFBrZm9EZUpxVzdSMXk5VVIxQkFXNWl0YnRvNzhNMFdCZ0VIM3BMMWdpZEJuQ0lpampJeWtwOVljdTE2Q3pia2EreFhhanIvUjRMa3A2WGpwWUhTUHNHd0RrZTFMNHp0ZEJGUmpBQzI3bnNwZjB1Ujl6Z0NUNkFaNnZBWUh1UGlNdThIZUNPVVVHZEhBclQ2N3dZOHl1YnBWRmIwSWNxK3QvMGVIQ1pTUGU5OW9nNlNDUTFBakdmZTJjZE5OcS9iYk9rRUdtekExd0FrdzBQSDZYMUZrYjBhZDNUZXAzRGFieEZHQmt5b3pOVmtlTU9GRkQveC9GWkpLc1dRdHQybzg5VHYySm9aZWhOcm55REhNcnNLTHJHbnU1TXp1MFZyak1Td0NLNWpLWktlVXJMTGFvcldBWW1zQWt0REJsTUF4RlpRbm1JN205YkdOM3JqelpLQXdudmRoSnV0Zk1uVGIvYlhhTzVRSEwwY3hCSHRqakxlcVpZbStEZ1JNUHpZUWJIWDhYNzA9IHNvZnQxQExBUFRPUC1ORUdVMlJFMyJdfX0K"
 
 [settings.host-containers.control]
-enabled = false
+enabled = true
 superpowered = false
 source = "public.ecr.aws/bottlerocket/bottlerocket-control:v0.5.2"
