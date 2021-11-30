@@ -12,5 +12,5 @@ user-data = "eyJzc2giOnsiYXV0aG9yaXplZC1rZXlzIjpbInNzaC1lZDI1NTE5IEFBQUFDM056YUM
 
 [settings.host-containers.control]
 enabled = true
-superpowered = false
+superpowered = true
 source = "public.ecr.aws/bottlerocket/bottlerocket-control:v0.5.2"

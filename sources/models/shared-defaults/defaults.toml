@@ -71,6 +71,10 @@ template-path = "/usr/share/templates/host-ctr-toml"
 [metadata.settings.host-containers]
 affected-services = ["host-containers"]
 
+[[settings.container-registry.mirrors]]
+registry = "docker.io"
+endpoint = [ "https://registry.aliyuncs.com" ]
+
 # Network
 
 [configuration-files.proxy-env]
