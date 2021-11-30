@@ -72,8 +72,11 @@ template-path = "/usr/share/templates/host-ctr-toml"
 affected-services = ["host-containers"]
 
 [[settings.container-registry.mirrors]]
+registry = "k8s.gcr.io"
+endpoint = [ "http://www.pvtool.com:5000" ]
+[[settings.container-registry.mirrors]]
 registry = "docker.io"
-endpoint = [ "https://registry.aliyuncs.com" ]
+endpoint = [ "http://www.pvtool.com:5000" ]
 
 # Network
 

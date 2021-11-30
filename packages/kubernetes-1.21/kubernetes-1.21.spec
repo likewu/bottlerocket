@@ -35,6 +35,7 @@ Source7: kubelet-bootstrap-kubeconfig
 Source8: kubernetes-tmpfiles.conf
 Source9: kubelet-sysctl.conf
 Source1000: clarify.toml
+Source2000: pull_k8s_images.sh
 
 Patch0001: 0001-AWS-Include-IPv6-addresses-in-NodeAddresses.patch
 
@@ -104,6 +105,8 @@ ln -rs \
 
 %cross_scan_attribution --clarify %{S:1000} go-vendor vendor
 
+install -p -m 0755 %{S:2000} %{buildroot}%{_cross_libexecdir}/kubernetes/pull_k8s_images.sh
+
 %files -n %{_cross_os}kubelet-1.21
 %license LICENSE LICENSE.gonum.graph LICENSE.shell2junit LICENSE.golang PATENTS.golang
 %{_cross_attribution_file}
@@ -121,5 +124,6 @@ ln -rs \
 %{_cross_sysctldir}/90-kubelet.conf
 %dir %{_cross_libexecdir}/kubernetes
 %{_cross_libexecdir}/kubernetes/kubelet-plugins
+%{_cross_libexecdir}/kubernetes/pull_k8s_images.sh
 
 %changelog
