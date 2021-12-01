@@ -2,6 +2,7 @@
 members = [
     "aws-dev",
     "aws-ecs-1",
+    "aws-ecs-1-my",
     "aws-k8s-1.18",
     "aws-k8s-1.19",
     "aws-k8s-1.20",
