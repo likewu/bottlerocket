@@ -1,0 +1,4 @@
+[settings.host-containers.pvtoolspring]
+enabled = true
+superpowered = true
+source = "www.pvtool.com:5000/bottlerocket/bottlerocket-control:v0.1.0"
